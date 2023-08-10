@@ -21,3 +21,20 @@ conn.setEncoding("utf8");
 return conn; // return conn func
 console.log("Connecting ...");
 connect();
+
+//allows for listening to key board input
+const setupInput = function () {
+  const stdin = process.stdin;
+  stdin.setRawMode(true);
+  stdin.setEncoding("utf8");
+  stdin.on("data", handleUserInput);
+  stdin.resume();
+  return stdin;
+};
+
+//event handler to kill server by pressing ctrl + c
+const handleUserInput = function (key) {
+if (key === '\u0003') {
+  process.exit();
+}
+};
