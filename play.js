@@ -20,7 +20,7 @@ conn.on("connect", () => {
 });
 conn.setEncoding("utf8");
 
-return conn; // return conn func
+return conn; 
 console.log("Connecting ...");
 connect(); // call connect func
 

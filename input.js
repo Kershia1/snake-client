@@ -1,14 +1,12 @@
 const net = require("net"); 
 const {connect} = require("./client"); // require connect func from client.js
 
-const conn = connect(); //  too call connect func, global scope
-//not sure if this is needed, says not a function
+const conn = connect(); // call connect func
 
 let connection; // declare connection var
 
 const setupInput = (conn) => {
   connection = conn; // assign conn to connection var) 
-  // stdin.on("data", (key) => { // event handler for key input
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
