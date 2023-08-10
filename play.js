@@ -1,13 +1,14 @@
 
-const net = require("net"); // require net module
-// both mods required net (facepalm)
+const net = require("net"); 
 
 const {connect} = require("./client"); // require connect func from client.js
 
-// need to call the connect function, now that modules are linked
-const conn = connect(); //  too call connect func, global scope
+//allows for listening to key board input from input.js mod
+const {setupInput} = require("./input"); 
 
-// not defined yet, wrong scope for event handler
+//call the linked functions
+const conn = connect(); 
+const stdin = setupInput(); 
 
 conn.on("data",(data)=>  {
 console.log("The server sent you a message: ", data);
@@ -20,21 +21,7 @@ conn.setEncoding("utf8");
 
 return conn; // return conn func
 console.log("Connecting ...");
-connect();
+connect(); // call connect func
 
-//allows for listening to key board input
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.on("data", handleUserInput);
-  stdin.resume();
-  return stdin;
-};
+setupInput(); // call setupInput func
 
-//event handler to kill server by pressing ctrl + c
-const handleUserInput = function (key) {
-if (key === '\u0003') {
-  process.exit();
-}
-};
