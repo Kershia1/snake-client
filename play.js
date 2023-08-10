@@ -10,7 +10,7 @@ const conn = connect(); //  too call connect func, global scope
 // not defined yet, wrong scope for event handler
 
 conn.on("data",(data)=>  {
-console.log("The server sent you data: ", data);
+console.log("The server sent you a message: ", data);
 }); //event handler for established connection
 
 conn.on("connect", ()=> {
