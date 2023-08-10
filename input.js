@@ -27,8 +27,14 @@ if (key === '\u0003') {
   conn.write("Move: left");
 } else if (key === "s") {
   conn.write("Move: down");
-} else { (key === "d") 
+} else if  (key === "d") {
   conn.write("Move: right");
+} else if (key === "p") {
+  conn.write("Say: I'm gonna get you!");
+} else if (key === "o") {
+  conn.write("Say: Om nom nom nom nom!");
+} else { (key === "l") 
+  conn.write("Say: I'm the bestest snake in the world!") 
 }
 };
 
