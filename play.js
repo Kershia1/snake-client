@@ -8,11 +8,13 @@ const {connect} = require("./client"); // require connect func from client.js
 const conn = connect(); //  too call connect func, global scope
 
 // not defined yet, wrong scope for event handler
+
 conn.on("data",(data)=>  {
 console.log("The server sent you data: ", data);
-});
+}); //event handler for established connection
+
 conn.on("connect", ()=> {
-  console.log("Established connection with Snek server");
+  console.log("Successfully connected to the game server");
 });
 conn.setEncoding("utf8");
 
