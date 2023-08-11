@@ -5,9 +5,10 @@ const { connect } = require("./client"); // require connect func from client.js
 
 //allows for listening to key board input from input.js mod
 const { setupInput } = require("./input");
+const { IP, PORT } = require("./constants");
 
 //call the linked functions
-const conn = connect();
+const conn = connect(IP, PORT);
 setupInput(conn);
 // const stdin = setupInput();
 

@@ -11,7 +11,6 @@ const connect = function (IP, PORT) {
   return conn;
 };
 
-
 // pass in IP and PORT from constants.js
 const conn = connect(IP, PORT); //  too call connect func, global scope
 

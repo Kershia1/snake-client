@@ -1,7 +1,8 @@
 const net = require("net"); 
 const {connect} = require("./client"); // require connect func from client.js
+const {IP, PORT} = require("./constants"); // pass in IP and PORT from constants.js
 
-const conn = connect(); // call connect func
+const conn = connect(IP, PORT); // call connect func
 
 let connection; // declare connection var
 
